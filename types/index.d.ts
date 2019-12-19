@@ -33,6 +33,16 @@ export interface PreprocessConfig {
   moduleStoreName?: string
 }
 
+// Adds a banner to the top of each generated chunk.
+export type BannerOptions = {
+  banner: string | Function // the banner as string or function, it will be wrapped in a comment
+  raw: boolean // if true, banner will not be wrapped in a comment
+  entryOnly: boolean // if true, the banner will only be added to the entry chunks
+  test: string | RegExp | string[]
+  include: string | RegExp | string[]
+  exclude: string | RegExp | string[]
+}
+
 // 拷贝
 export type CopyOptions = { [from: string]: string } | { from: string; to: string }[]
 
@@ -132,6 +142,7 @@ export type WatchOptions = {
 
 // 可用服务配置
 export interface ServiceConfig {
+  banner: string | boolean | Function | BannerOptions
   copy: CopyOptions
   compress: CompressOptions
   define: DefineOptions
