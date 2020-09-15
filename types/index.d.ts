@@ -1,5 +1,5 @@
 import { ProjectOptions } from '@vue/cli-service'
-import ChainableWebpackConfig from 'webpack-chain'
+import ChainableWebpackConfig = require('webpack-chain')
 import * as HtmlWebpackPlugin from 'html-webpack-plugin'
 import * as WebpackNotifierPlugin from 'webpack-notifier'
 
@@ -128,9 +128,11 @@ export type ThemeOptions = string | string[] | ThemeOption | ThemeOption[]
 export type UnusedOptions =
   | boolean
   | {
-      patterns: string[]
+      directories: string[]
       failOnUnused?: boolean
-      globOptions?: { ignore?: string; cwd?: string }
+      exclude: string[]
+      root: string
+      useGitIgnore: boolean
     }
 
 // watch
