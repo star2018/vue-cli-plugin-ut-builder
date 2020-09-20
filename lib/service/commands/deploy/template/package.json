@@ -1,0 +1,27 @@
+{
+  "name": "mock-server",
+  "private": true,
+  "version": "1.0.0",
+  "devDependencies": {
+    "pm2": "4.4.1"
+  },
+  "vue": {
+    "lintOnSave": false,
+    "devServer": {
+      "historyApiFallback": false,
+      "open": false
+    },
+    "pluginOptions": {
+      "moduleEntry": "main.js",
+      "htmlTemplate": "index.html",
+      "services": {
+        "notifier": false,
+        "mock": {
+          "path": "script",
+          "init": false,
+          "locate": false
+        }
+      }
+    }
+  }
+}
